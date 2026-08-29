@@ -1,3 +1,5 @@
+import ProductCard from "@/components/ProductCard";
+
 export default function Home() {
   return (
     <main>
@@ -44,6 +46,41 @@ export default function Home() {
 </div>
 
 
+</section>
+
+<section className="px-6 py-20 md:px-8">
+  <div className="mb-10">
+    <h2 className="text-4xl font-bold tracking-tight">
+      OUR COLLECTION
+    </h2>
+
+    <p className="mt-3 text-gray-600">
+      Explore our latest products.
+    </p>
+  </div>
+
+  <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+
+    <ProductCard
+  name="Performance Tee"
+  price="Rp 299.000"
+  image="/images/hero.jpg"
+/>
+
+<ProductCard
+  name="Training Shorts"
+  price="Rp 249.000"
+  image="/images/hero.jpg"
+/>
+
+<ProductCard
+  name="Essential Hoodie"
+  price="Rp 499.000"
+  image="/images/hero.jpg"
+/>
+
+
+  </div>
 </section>
 
     </main>
