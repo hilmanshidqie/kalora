@@ -1,4 +1,5 @@
 import ProductCard from "@/components/ProductCard";
+import { products } from "@/products";
 
 export default function Home() {
   return (
@@ -60,26 +61,14 @@ export default function Home() {
   </div>
 
   <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
-
-    <ProductCard
-  name="Performance Tee"
-  price="Rp 299.000"
-  image="/images/hero.jpg"
-/>
-
-<ProductCard
-  name="Training Shorts"
-  price="Rp 249.000"
-  image="/images/hero.jpg"
-/>
-
-<ProductCard
-  name="Essential Hoodie"
-  price="Rp 499.000"
-  image="/images/hero.jpg"
-/>
-
-
+    {products.map((product) => (
+  <ProductCard
+    key={product.name}
+    name={product.name}
+    price={product.price}
+    image={product.image}
+  />
+))}
   </div>
 </section>
 
