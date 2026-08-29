@@ -20,10 +20,9 @@ export default function Home() {
 
       </nav>
 
-      <section className="grid min-h-[80vh] grid-cols-2 items-center gap-16 px-8 py-16">
-
+      <section className="grid min-h-[80vh] grid-cols-1 items-center gap-12 px-6 py-16 md:grid-cols-2 md:gap-16 md:px-8">
   <div>
-    <h1 className="max-w-4xl text-8xl font-bold tracking-tight">
+    <h1 className="max-w-4xl text-6xl font-bold tracking-tight md:text-8xl">
       MOVE WITH PURPOSE
     </h1>
 
@@ -36,7 +35,7 @@ export default function Home() {
     </button>
   </div>
 
-  <div className="h-[500px] overflow-hidden rounded-3xl">
+ <div className="h-[400px] overflow-hidden rounded-3xl md:h-[500px]">
   <img
     src="/images/hero.jpg"
     alt="KALORA activewear"
