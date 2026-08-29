@@ -1,16 +1,18 @@
 type ProductCardProps = {
+  slug: string;
   name: string;
   price: string;
   image: string;
 };
 
 export default function ProductCard({
+  slug,
   name,
   price,
   image,
 }: ProductCardProps) {
   return (
-    <div>
+    <a href={`/products/${slug}`} >
       <div className="h-[400px] overflow-hidden rounded-3xl">
         <img
           src={image}
@@ -26,6 +28,6 @@ export default function ProductCard({
       <p className="mt-1 text-gray-600">
         {price}
       </p>
-    </div>
+    </a>
   );
 }
