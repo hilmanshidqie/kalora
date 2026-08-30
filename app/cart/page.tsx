@@ -35,8 +35,16 @@ export default function CartPage() {
               </h2>
 
               <p className="mt-4 text-xl">
-                {cart.price}
-              </p>
+  {cart.price}
+</p>
+
+<p className="mt-4 text-2xl font-bold">
+  Total: Rp{" "}
+  {(
+    Number(cart.price.replace(/\D/g, "")) * quantity
+  ).toLocaleString("id-ID")}
+</p>
+
               <div className="mt-6 flex items-center gap-4">
   <button
     onClick={() => setQuantity(Math.max(1, quantity - 1))}
