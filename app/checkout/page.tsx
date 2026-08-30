@@ -46,7 +46,7 @@ export default function CheckoutPage() {
 
           <button
   onClick={() => {
-    alert("Order placed successfully!");
+    window.location.href = "/success";
   }}
   className="w-full rounded-full bg-black px-8 py-4 text-white"
 >
