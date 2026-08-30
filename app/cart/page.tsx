@@ -40,6 +40,17 @@ export default function CartPage() {
               <p className="mt-4 text-gray-600">
                 Product added to your cart.
               </p>
+              
+              <button
+  onClick={() => {
+    localStorage.removeItem("cart");
+    setCart(null);
+  }}
+  className="mt-6 rounded-full border border-gray-300 px-6 py-3"
+>
+  Remove from Cart
+</button>
+
             </div>
           </div>
         </div>
