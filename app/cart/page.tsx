@@ -7,12 +7,17 @@ export default function CartPage() {
   const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
-    const savedCart = localStorage.getItem("cart");
+  const savedCart = localStorage.getItem("cart");
+  const savedQuantity = localStorage.getItem("quantity");
 
-    if (savedCart) {
-      setCart(JSON.parse(savedCart));
-    }
-  }, []);
+  if (savedCart) {
+    setCart(JSON.parse(savedCart));
+  }
+
+  if (savedQuantity) {
+    setQuantity(Number(savedQuantity));
+  }
+}, []);
 
   return (
     <main className="min-h-screen p-8">
@@ -47,7 +52,11 @@ export default function CartPage() {
 
               <div className="mt-6 flex items-center gap-4">
   <button
-    onClick={() => setQuantity(Math.max(1, quantity - 1))}
+    onClick={() => {
+  const newQuantity = Math.max(1, quantity - 1);
+  setQuantity(newQuantity);
+  localStorage.setItem("quantity", String(newQuantity));
+}}
     className="flex h-10 w-10 items-center justify-center rounded-full border"
   >
     −
@@ -58,7 +67,11 @@ export default function CartPage() {
   </span>
 
   <button
-    onClick={() => setQuantity(quantity + 1)}
+    onClick={() => {
+  const newQuantity = quantity + 1;
+  setQuantity(newQuantity);
+  localStorage.setItem("quantity", String(newQuantity));
+}}
     className="flex h-10 w-10 items-center justify-center rounded-full border"
   >
     +
@@ -72,6 +85,7 @@ export default function CartPage() {
               <button
   onClick={() => {
     localStorage.removeItem("cart");
+    localStorage.removeItem("quantity");
     setCart(null);
   }}
   className="mt-6 rounded-full border border-gray-300 px-6 py-3"
