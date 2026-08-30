@@ -92,6 +92,12 @@ export default function CartPage() {
 >
   Remove from Cart
 </button>
+<a
+  href="/checkout"
+  className="mt-4 inline-block rounded-full bg-black px-8 py-4 text-white"
+>
+  Checkout
+</a>
 
             </div>
           </div>
