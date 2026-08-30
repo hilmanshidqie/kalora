@@ -1,52 +1,51 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Navbar from "@/components/Navbar";
 
 export default function CartPage() {
-  const [cart, setCart] = useState<any>(null);
-  const [quantity, setQuantity] = useState(1);
+  const [cart, setCart] = useState<any[]>([]);
 
   useEffect(() => {
   const savedCart = localStorage.getItem("cart");
-  const savedQuantity = localStorage.getItem("quantity");
 
-  if (savedCart) {
-    setCart(JSON.parse(savedCart));
-  }
-
-  if (savedQuantity) {
-    setQuantity(Number(savedQuantity));
-  }
+if (savedCart) {
+  setCart([JSON.parse(savedCart)]);
+}
 }, []);
 
   return (
-    <main className="min-h-screen p-8">
+  <main className="min-h-screen">
+    <Navbar />
+
+    <div className="p-8">
       <h1 className="text-4xl font-bold">
         Your Cart
       </h1>
 
-      {cart ? (
+      {cart.length > 0 ? (
         <div className="mt-10">
+          {cart.map((item) => (
           <div className="grid max-w-4xl gap-8 md:grid-cols-2">
             <img
-              src={cart.image}
-              alt={cart.name}
+              src={item.image}
+              alt={item.name}
               className="h-[400px] w-full rounded-3xl object-cover"
             />
 
             <div>
               <h2 className="text-3xl font-bold">
-                {cart.name}
+                {item.name}
               </h2>
 
               <p className="mt-4 text-xl">
-  {cart.price}
+  {item.price}
 </p>
 
 <p className="mt-4 text-2xl font-bold">
   Total: Rp{" "}
   {(
-    Number(cart.price.replace(/\D/g, "")) * quantity
+    Number(item.price.replace(/\D/g, "")) * quantity
   ).toLocaleString("id-ID")}
 </p>
 
@@ -97,16 +96,18 @@ export default function CartPage() {
   className="mt-4 inline-block rounded-full bg-black px-8 py-4 text-white"
 >
   Checkout
-</a>
+  </a>
+</div>
 
-            </div>
-          </div>
-        </div>
-      ) : (
+      </div>
+    ))}
+  </div>
+) : (
         <p className="mt-4 text-gray-600">
           Your cart is currently empty.
         </p>
       )}
+      </div>
     </main>
   );
 }

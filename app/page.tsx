@@ -1,28 +1,11 @@
+import Navbar from "@/components/Navbar";
 import ProductCard from "@/components/ProductCard";
 import { products } from "@/products";
 
 export default function Home() {
   return (
     <main>
-      <nav className="flex items-center justify-between border-b border-gray-200 px-8 py-6">
-      
-        <div className="text-xl font-bold tracking-tight">
-  KALORA
-</div>
-
-        <div className="flex gap-12">
-  <a href="/products">Shop</a>
-  <a href="#">About</a>
-  <a href="product">Collection</a>
-  <a href="/cart">Cart</a>
-</div>
-
-
-        <button className="rounded-full bg-black px-6 py-3 text-sm font-medium text-white">
-  Shop Now
-</button>
-
-      </nav>
+      <Navbar />
 
       <section className="grid min-h-[80vh] grid-cols-1 items-center gap-12 px-6 py-16 md:grid-cols-2 md:gap-16 md:px-8">
   <div>
