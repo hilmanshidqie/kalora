@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 export default function CartPage() {
   const [cart, setCart] = useState<any>(null);
+  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     const savedCart = localStorage.getItem("cart");
@@ -36,6 +37,25 @@ export default function CartPage() {
               <p className="mt-4 text-xl">
                 {cart.price}
               </p>
+              <div className="mt-6 flex items-center gap-4">
+  <button
+    onClick={() => setQuantity(Math.max(1, quantity - 1))}
+    className="flex h-10 w-10 items-center justify-center rounded-full border"
+  >
+    −
+  </button>
+
+  <span className="w-8 text-center">
+    {quantity}
+  </span>
+
+  <button
+    onClick={() => setQuantity(quantity + 1)}
+    className="flex h-10 w-10 items-center justify-center rounded-full border"
+  >
+    +
+  </button>
+</div>
 
               <p className="mt-4 text-gray-600">
                 Product added to your cart.
