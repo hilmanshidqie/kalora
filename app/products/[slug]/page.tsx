@@ -1,3 +1,6 @@
+"use client";
+
+
 import { products } from "@/products";
 
 type ProductPageProps = {
@@ -48,9 +51,22 @@ export default async function ProductPage({
             {product.description}
           </p>
 
-          <button className="mt-8 w-fit rounded-full bg-black px-8 py-4 text-white">
-            Add to Cart
-          </button>
+          <button
+  onClick={() => {
+    localStorage.setItem("cart", JSON.stringify(product));
+    alert("Product added to cart!");
+  }}
+  className="mt-8 w-fit rounded-full bg-black px-8 py-4 text-white"
+>
+  Add to Cart
+</button>
+
+<a
+  href="/cart"
+  className="mt-4 w-fit rounded-full border border-gray-300 px-8 py-4"
+>
+  View Cart
+</a>
         </div>
 
       </div>
