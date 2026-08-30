@@ -11,9 +11,10 @@ export default function Home() {
 </div>
 
         <div className="flex gap-12">
-  <a href="#">Shop</a>
+  <a href="/products">Shop</a>
   <a href="#">About</a>
-  <a href="#">Collection</a>
+  <a href="product">Collection</a>
+  <a href="/cart">Cart</a>
 </div>
 
 
